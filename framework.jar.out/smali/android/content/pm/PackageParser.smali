@@ -7835,6 +7835,18 @@
 
     if-nez v4, :cond_2
 
+    const-string v4, "miui"
+
+    move-object v0, v4
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
     .line 778
     const/4 v4, 0x0
 
@@ -10668,6 +10680,14 @@
     if-eqz v0, :cond_7
 
     const-string v3, "android"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    const-string v3, "miui"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

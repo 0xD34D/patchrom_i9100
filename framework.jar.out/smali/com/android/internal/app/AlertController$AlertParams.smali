@@ -211,8 +211,12 @@
 
     .line 929
     :cond_0
+    new-instance v1, Lmiui/widget/RoundCornerListAdapter;
+
+    invoke-direct {v1, v0}, Lmiui/widget/RoundCornerListAdapter;-><init>(Landroid/widget/ListAdapter;)V
+
     #setter for: Lcom/android/internal/app/AlertController;->mAdapter:Landroid/widget/ListAdapter;
-    invoke-static {p1, v0}, Lcom/android/internal/app/AlertController;->access$802(Lcom/android/internal/app/AlertController;Landroid/widget/ListAdapter;)Landroid/widget/ListAdapter;
+    invoke-static {p1, v1}, Lcom/android/internal/app/AlertController;->access$802(Lcom/android/internal/app/AlertController;Landroid/widget/ListAdapter;)Landroid/widget/ListAdapter;
 
     .line 930
     iget v1, p0, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItem:I

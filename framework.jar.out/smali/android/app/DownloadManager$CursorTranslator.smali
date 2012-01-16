@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x8
     name = "CursorTranslator"
 .end annotation
 
@@ -210,7 +210,7 @@
     goto :goto_0
 .end method
 
-.method private getPausedReason(I)J
+.method getPausedReason(I)J
     .locals 2
     .parameter "status"
 
@@ -281,7 +281,7 @@
 
     .line 1404
     :sswitch_1
-    invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getPausedReason(I)J
+    invoke-virtual {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getPausedReason(I)J
 
     move-result-wide v0
 

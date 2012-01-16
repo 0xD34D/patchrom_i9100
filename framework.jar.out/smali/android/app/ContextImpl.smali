@@ -1290,7 +1290,9 @@
 
     move-result-object v3
 
-    invoke-direct {v1, v2, v3}, Landroid/app/DownloadManager;-><init>(Landroid/content/ContentResolver;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroid/util/MiuiClassFactory;->createDownloadManager(Landroid/content/ContentResolver;Ljava/lang/String;)Landroid/app/DownloadManager;
+
+    move-result-object v1
 
     iput-object v1, p0, Landroid/app/ContextImpl;->mDownloadManager:Landroid/app/DownloadManager;
 
