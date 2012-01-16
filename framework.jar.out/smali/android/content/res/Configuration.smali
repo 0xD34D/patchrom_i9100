@@ -1418,7 +1418,7 @@
 .end method
 
 .method public setTo(Landroid/content/res/Configuration;)V
-    .locals 1
+    .locals 2
     .parameter "o"
 
     .prologue
