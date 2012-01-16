@@ -266,26 +266,6 @@
 
     invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorIntToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
 
-    .line 1889
-    const-string v11, "custom_ringtone"
-
-    invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorStringToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
-
-    .line 1890
-    const-string/jumbo v11, "sns_id"
-
-    invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorStringToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
-
-    .line 1891
-    const-string/jumbo v11, "sp"
-
-    invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorIntToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
-
-    .line 1892
-    const-string v11, "last_time_modified"
-
-    invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorStringToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
-
     .line 1894
     new-instance v3, Landroid/content/Entity;
 
@@ -365,11 +345,6 @@
 
     .line 1913
     const-string v11, "data_version"
-
-    invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorStringToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
-
-    .line 1915
-    const-string/jumbo v11, "title"
 
     invoke-static {p1, v4, v11}, Landroid/database/DatabaseUtils;->cursorStringToContentValuesIfPresent(Landroid/database/Cursor;Landroid/content/ContentValues;Ljava/lang/String;)V
 
