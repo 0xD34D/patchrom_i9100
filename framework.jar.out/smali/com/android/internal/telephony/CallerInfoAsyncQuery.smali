@@ -43,7 +43,7 @@
 
     .prologue
     .line 55
-    const-string v0, "content://com.android.contacts/phone_lookup_n/"
+    const-string v0, "content://com.android.contacts/phone_lookup/"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -394,19 +394,19 @@
 
     .line 355
     .local v0, builder:Landroid/net/Uri$Builder;
-    const/16 v1, 0xb
+    #const/16 v1, 0xb
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    #invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    #move-result-object v1
 
-    invoke-static {v1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+    #invoke-static {v1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    #move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    #invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v0
+    #move-result-object v0
 
     .end local v0           #builder:Landroid/net/Uri$Builder;
     invoke-static {p2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
