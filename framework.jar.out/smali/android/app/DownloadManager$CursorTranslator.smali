@@ -173,39 +173,95 @@
 .end method
 
 .method private getLocalUri()Ljava/lang/String;
-    .locals 2
+    .locals 7
 
     .prologue
-    .line 1356
-    const-string v1, "_data"
+    .line 992
+    const-string v5, "destination"
 
-    invoke-direct {p0, v1}, Landroid/app/DownloadManager$CursorTranslator;->getUnderlyingString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getUnderlyingLong(Ljava/lang/String;)J
 
-    move-result-object v0
+    move-result-wide v0
 
-    .line 1357
-    .local v0, localPath:Ljava/lang/String;
-    if-nez v0, :cond_0
+    .line 993
+    .local v0, destinationType:J
+    const-wide/16 v5, 0x4
 
-    .line 1358
-    const/4 v1, 0x0
+    cmp-long v5, v0, v5
 
-    .line 1360
+    if-nez v5, :cond_0
+
+    .line 995
+    const-string v5, "hint"
+
+    invoke-direct {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getUnderlyingString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 1009
     :goto_0
-    return-object v1
+    return-object v5
 
+    .line 998
     :cond_0
-    new-instance v1, Ljava/io/File;
+    const-wide/16 v5, 0x0
 
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    cmp-long v5, v0, v5
 
-    invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+    if-nez v5, :cond_2
 
-    move-result-object v1
+    .line 1000
+    const-string v5, "_data"
 
-    invoke-virtual {v1}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-direct {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getUnderlyingString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
+
+    .line 1001
+    .local v4, localPath:Ljava/lang/String;
+    if-nez v4, :cond_1
+
+    .line 1002
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    .line 1004
+    :cond_1
+    new-instance v5, Ljava/io/File;
+
+    invoke-direct {v5, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v5}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    .line 1008
+    .end local v4           #localPath:Ljava/lang/String;
+    :cond_2
+    const-string v5, "_id"
+
+    invoke-direct {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getUnderlyingLong(Ljava/lang/String;)J
+
+    move-result-wide v2
+
+    .line 1009
+    .local v2, downloadId:J
+    iget-object v5, p0, Landroid/app/DownloadManager$CursorTranslator;->mBaseUri:Landroid/net/Uri;
+
+    invoke-static {v5, v2, v3}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v5
 
     goto :goto_0
 .end method
