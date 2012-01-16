@@ -100,24 +100,6 @@
 
     sput-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->TAG:Ljava/lang/String;
 
-    .line 54
-    const-string v0, "com.sec.android.app.provider.sns/message/message/"
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->SNS_GET_MSG_RECEIVERS:Landroid/net/Uri;
-
-    .line 55
-    const-string v0, "com.sec.android.app.provider.sns/thread_message/message/"
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->SNS_GET_THREADMSG_RECEIVERS:Landroid/net/Uri;
-
     .line 199
     new-instance v0, Landroid/content/UriMatcher;
 
@@ -220,8 +202,6 @@
 
     const-string v1, "logs"
 
-    const-string v1, "sms"
-
     const/16 v2, 0x9
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
@@ -230,8 +210,6 @@
     sget-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->sURIMatcher:Landroid/content/UriMatcher;
 
     const-string v1, "logs"
-
-    const-string v1, "mms"
 
     const/4 v2, 0x7
 
@@ -461,15 +439,6 @@
     const-string v1, "numberlabel"
 
     const-string v2, "numberlabel"
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 244
-    sget-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->sLogsProjectionMap:Ljava/util/HashMap;
-
-    const-string v1, "messageid"
-
-    const-string v2, "messageid"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -720,15 +689,6 @@
     const-string v1, "numberlabel"
 
     const-string v2, "numberlabel"
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 279
-    sget-object v0, Lcom/sec/android/provider/logsprovider/LogsProvider;->sIdSearchProjectionMap:Ljava/util/HashMap;
-
-    const-string v1, "messageid"
-
-    const-string v2, "logs.messageid AS messageid"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

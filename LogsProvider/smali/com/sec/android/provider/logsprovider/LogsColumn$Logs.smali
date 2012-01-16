@@ -203,7 +203,7 @@
 
     const/4 v1, 0x5
 
-    const-string v2, "display_name_reverse"
+    const-string v2, "display_name"
 
     aput-object v2, v0, v1
 
@@ -329,7 +329,7 @@
 
     aput-object v1, v0, v3
 
-    const-string v1, "display_name_reverse"
+    const-string v1, "display_name"
 
     aput-object v1, v0, v4
 
