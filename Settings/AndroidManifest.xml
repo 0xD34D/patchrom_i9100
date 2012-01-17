@@ -263,7 +263,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/language_picker_title" android:name="LocalePicker">
+        <activity android:label="@string/language_picker_title" android:name="LocalePicker" android:theme="@style/android:Theme.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.LOCALE_SETTINGS" />
@@ -548,7 +548,7 @@
         </activity>
         <activity android:label="@string/lockpattern_change_lock_pattern_label" android:name="ChooseLockPatternTutorial" />
         <activity android:label="@string/lockpattern_change_lock_pattern_label" android:name="ChooseLockPatternExample" />
-        <activity android:label="@string/choose_timezone" android:name="ZoneList" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/choose_timezone" android:name="ZoneList" android:theme="@style/android:Theme.Light" android:configChanges="keyboardHidden|orientation" />
         <activity android:label="@string/device_status_activity_title" android:name=".deviceinfo.Status" android:process="com.android.phone">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
