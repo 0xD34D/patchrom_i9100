@@ -199,7 +199,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
     .line 229
@@ -662,23 +662,23 @@
     .line 723
     cmpg-float v3, v0, v1
 
-    if-gez v3, :cond_13
+    if-gez v3, :cond_14
 
     move v3, v5
 
     goto/16 :goto_0
 
     .line 724
-    :cond_13
+    :cond_14
     cmpl-float v3, v0, v1
 
-    if-lez v3, :cond_14
+    if-lez v3, :cond_15
 
     move v3, v6
 
     goto/16 :goto_0
 
-    :cond_14
+    :cond_15
     move v3, v2
 
     .line 726
