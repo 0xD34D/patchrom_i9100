@@ -1,21 +1,22 @@
 #
 # Makefile for i9100
 #
-# maintain:
-# 	1) For APK from miui, add it in local-miui-apps
-# 	2) If any APK from original is changed, add it at local-modified-apps
-# 	3) Put apps need to be removed at local-remove-apps
+
+# The out path for jars and apks from MIUI
+# 	defalut value is false, to use the jars and apks under miui/
+# 	could be set as true, to use the jars and apks under android build out.
+local-use-android-out := false
 
 # The original zip file, MUST be specified by each product
-local-zip-file     := i9100_final.zip
+local-zip-file     := I9100ZCKJ1.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
 local-out-zip-file := MIUI_9100.zip
 
-# All apps from zip and has smali files chanded(need to be builded by apktool)
+# All apps from original ZIP, but has smali files chanded
 local-modified-apps := LogsProvider CSC serviceModeApp Phone MediaProvider Settings SecDownloadProviderUi
 
-# All apks from MIUI execept MIUISystemUI and framework-res.apk
+# All apks from MIUI execept MIUISystemUI and framework-miui-res.apk
 local-miui-apps     := Contacts ContactsProvider Mms TelephonyProvider ThemeManager Launcher2 \
      DownloadProvider TelocationProvider Notes Music Torch DownloadProviderUi Updater
 
@@ -32,31 +33,25 @@ local-remove-apps   := AlipayGphone AmsComposer AndroidQQ_Samsung_Seine BuddiesN
     Tasks TasksProvider Term TrimApp TwCalendarAppWidget Zinio \
     samsungappswidget syncmldm viva_tts
 
-# The local targets before zip the final ZIP file
-local-pre-zip := zip_misc
-zip_misc:
-	@echo Add other tools: invoke-as, busybox
-	cp $(SYSOUT_DIR)/xbin/invoke-as $(ZIP_DIR)/system/xbin/
-	cp other/busybox $(ZIP_DIR)/system/xbin/
+# To include the local targets before and after zip the final ZIP file, 
+# and the local-targets should:
+# (1) be defined after including porting.mk if using any global variable(see porting.mk)
+# (2) the name should be leaded with local- to prevent any conflict with global targets
+local-pre-zip := local-zip-misc
+local-after-zip:= local-test
+
+# The local targets after the zip file is generated, could include 'zip2sd' to 
+# deliver the zip file to phone, or to customize other actions
+
+include $(PORT_BUILD)/porting.mk
+
+# To define any local-target
+local-zip-misc:
 	cp other/com.google.android.maps.jar $(ZIP_DIR)/system/framework/
 	@echo Add google apks
 	cp other/apk/* $(ZIP_DIR)/system/app/
 	@echo Replace build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
-	@echo Add Launcher gadget files
-	cp -r $(SYSOUT_DIR)/media/gadget $(ZIP_DIR)/system/media/
-	@echo Add default theme
-	cp -r $(SYSOUT_DIR)/media/theme  $(ZIP_DIR)/system/media/
-	@echo Add wallpapers
-	cp -r $(SYSOUT_DIR)/media/wallpaper $(ZIP_DIR)/system/media/
-	@echo Add lockscreen wallpapers
-	cp -r $(SYSOUT_DIR)/media/lockscreen $(ZIP_DIR)/system/media/
 
-# The local targets after the zip file is generated, could include 'zip2sd' to 
-# deliver the zip file to phone, or to customize other actions
-local-after-zip:= test
-test:
+local-test:
 	echo "an example action"
-
-include $(PORT_BUILD)/porting.mk
-
