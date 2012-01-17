@@ -272,7 +272,8 @@
     .line 220
     iget-object v0, v8, Lcom/android/phone/CallLogAsync$AddCallArgs;->dbUri:Landroid/net/Uri;
 
-    if-eqz v0, :cond_8
+    if-nez v0, :cond_8
+    :goto_3
 
     .line 221
     iget-object v0, v8, Lcom/android/phone/CallLogAsync$AddCallArgs;->context:Landroid/content/Context;
@@ -290,7 +291,7 @@
     aput-object v0, v12, v10
 
     .line 183
-    :goto_3
+
     add-int/lit8 v10, v10, 0x1
 
     goto/16 :goto_0
