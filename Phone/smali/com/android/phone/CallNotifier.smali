@@ -8386,6 +8386,7 @@
     iget-boolean v0, p3, Lcom/android/internal/telephony/CallerInfo;->contactExists:Z
 
     if-ne v0, v2, :cond_5
+    goto :cond_5
 
     .line 1184
     const-string v0, "onQueryComplete: start group ringtone query"
