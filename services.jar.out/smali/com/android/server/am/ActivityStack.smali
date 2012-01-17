@@ -6781,7 +6781,22 @@
 
     if-eqz v3, :cond_9
 
+    iget-object v3, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v3, v0, v1}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_b
+
+    move v3, v5
+
+    goto :goto_0
+
     .line 3489
+    :cond_b
     iget v3, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
 
     or-int/2addr v3, v0
