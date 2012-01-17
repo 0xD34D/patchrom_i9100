@@ -1094,7 +1094,6 @@
 
     .line 443
     :goto_1
-    if-nez v8, :cond_0
 
     .line 444
     invoke-static {}, Lcom/android/phone/PhoneApp;->createCallLogIntent()Landroid/content/Intent;
