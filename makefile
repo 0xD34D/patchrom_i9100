@@ -2,11 +2,6 @@
 # Makefile for i9100
 #
 
-# The out path for jars and apks from MIUI
-# 	defalut value is false, to use the jars and apks under miui/
-# 	could be set as true, to use the jars and apks under android build out.
-local-use-android-out := false
-
 # The original zip file, MUST be specified by each product
 local-zip-file     := I9100ZCKJ1.zip
 
@@ -14,7 +9,7 @@ local-zip-file     := I9100ZCKJ1.zip
 local-out-zip-file := MIUI_9100.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := LogsProvider CSC serviceModeApp Phone MediaProvider Settings SecDownloadProviderUi
+local-modified-apps := LogsProvider Phone MediaProvider Settings
 
 # All apks from MIUI execept MIUISystemUI and framework-miui-res.apk
 local-miui-apps     := Contacts ContactsProvider Mms TelephonyProvider ThemeManager Launcher2 \
@@ -47,11 +42,11 @@ include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
 local-zip-misc:
-	cp other/com.google.android.maps.jar $(ZIP_DIR)/system/framework/
+	cp misc/com.google.android.maps.jar $(ZIP_DIR)/system/framework/
 	@echo Add google apks
-	cp other/apk/* $(ZIP_DIR)/system/app/
+	cp misc/apk/* $(ZIP_DIR)/system/app/
 	@echo Replace build.prop
-	cp other/build.prop $(ZIP_DIR)/system/build.prop
+	cp misc/build.prop $(ZIP_DIR)/system/build.prop
 
 local-test:
 	echo "an example action"
